@@ -12,6 +12,7 @@ import {
 import { getMetadataFileQuestion } from './datasources/metadata-file';
 import { getDatasourceTypeChoices } from './prompt-helpers';
 import { getLocalCapProjectPrompts } from './datasources/cap-project/questions';
+import LoggerHelper from './logger-helper';
 
 /**
  * Get the prompts for the OData service inquirer.
@@ -45,7 +46,24 @@ function getDatasourceTypeQuestion(options?: DatasourceTypePromptOptions): YUIQu
         default: options?.default ?? -1,
         message: t('prompts.datasourceType.message'),
         choices,
-        additionalMessages: (source) => {
+        additionalMessages: (source: DatasourceType) => {
+            if (
+                [
+                    DatasourceType.business_hub,
+                    DatasourceType.none,
+                    DatasourceType.odata_service_url,
+                    DatasourceType.project_specific_destination,
+                    DatasourceType.sap_system
+                ].includes(source)
+            ) {
+                LoggerHelper.logger?.warn(
+                    t('prompts.datasourceType.notYetImplemenetdWarningMessage', { datasourceType: source })
+                );
+                return {
+                    message: t('prompts.datasourceType.notYetImplemenetdWarningMessage', { datasourceType: source }),
+                    severity: Severity.warning
+                };
+            }
             if (source === DatasourceType.business_hub) {
                 return {
                     message: t('prompts.nonUIServiceTypeWarningMessage', {

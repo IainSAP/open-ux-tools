@@ -104,15 +104,15 @@ export class ErrorHandler {
     // More specific error messages can be used at the point of error generation.
     private static readonly _errorMsg = (error?: Error | object): Record<ERROR_TYPE, string> => ({
         [ERROR_TYPE.CERT]: t('errors.certificateError', { error }),
-        [ERROR_TYPE.CERT_EXPIRED]: t('errors.urlCertValidationError', { cert_error_reason: t('texts.anExpiredCert') }),
+        [ERROR_TYPE.CERT_EXPIRED]: t('errors.urlCertValidationError', { certErrorReason: t('texts.anExpiredCert') }),
         [ERROR_TYPE.CERT_SELF_SIGNED]: t('errors.urlCertValidationError', {
-            cert_error_reason: t('texts.aSelfSignedCert')
+            certErrorReason: t('texts.aSelfSignedCert')
         }),
         [ERROR_TYPE.CERT_UKNOWN_OR_INVALID]: t('errors.urlCertValidationError', {
-            cert_error_reason: t('texts.anUnknownOrInvalidCert')
+            certErrorReason: t('texts.anUnknownOrInvalidCert')
         }),
         [ERROR_TYPE.CERT_SELF_SIGNED_CERT_IN_CHAIN]: t('errors.urlCertValidationError', {
-            cert_error_reason: t('texts.anUntrustedRootCert')
+            certErrorReason: t('texts.anUntrustedRootCert')
         }),
         [ERROR_TYPE.AUTH]: t('errors.authenticationFailed', { error }),
         [ERROR_TYPE.AUTH_TIMEOUT]: t('errors.authenticationTimeout'),

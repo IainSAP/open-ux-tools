@@ -14,7 +14,8 @@
             "sapSystemChoiceText": "Connect to a $t(prompts.datasourceType.sapSystemName)",
             "odataServiceUrlChoiceText": "Connect to an $t(prompts.datasourceType.odataServiceUrlName)",
             "capProjectChoiceText": "Use a $t(prompts.datasourceType.capProjectName)",
-            "metadataFileChoiceText": "Upload a $t(prompts.datasourceType.metadataFileName)"
+            "metadataFileChoiceText": "Upload a $t(prompts.datasourceType.metadataFileName)",
+            "notYetImplemenetdWarningMessage": "The selected data source type: {{ datasourceType }} is not yet implemented."
         },
         "metadataFile": {
             "message": "Metadata file path",
@@ -52,7 +53,7 @@
         "unknownError": "An error occurred: {{- error}}",
         "servicesUnavailable": "An error occurred retrieving service(s) for SAP System.",
         "certificateError": "A certificate error has occurred: {{- error}}",
-        "urlCertValidationError": "The system URL is using {{cert_error_reason}} security certificate.",
+        "urlCertValidationError": "The system URL is using {{certErrorReason}} security certificate.",
         "authenticationFailed": "Authentication incorrect {{error}}",
         "authenticationTimeout": "Authorization was not verified within the allowed time. Please ensure you have authenticated using the associated browser window.",
         "invalidUrl": "Not a valid URL",
